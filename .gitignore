@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+# generate
+dist
+
+.idea
+
+!tools/**/dist
