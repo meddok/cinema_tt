@@ -1,7 +1,6 @@
 <template>
 	<div class="container">
-		<title>Search</title>
-		<search-field />
+      <h1 class="title mb-4">Результаты поиска: "то что было введено"</h1>
 		<films-list />
 	</div>
 </template>

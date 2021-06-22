@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 import searchField from "@/components/ui/cSearchField";
 import checkBox from "@/components/ui/cCheckBox";
 import DATA from "@/data/movieGenres";
@@ -47,10 +45,6 @@ export default {
       checkBox
    },
    methods: {
-      ...mapActions([
-          'FETCH_MOVIE_SEARCH',
-      ]),
-
       onCheckChange(genre) {
          const idGenre = this.selectedGenres.indexOf(genre)
 
@@ -66,9 +60,8 @@ export default {
             alert('Заполните хоть что-то!')
             return false;
          }
-
          this.formData.genres = [...this.selectedGenres.map(el => el.genreId)]
-         this.FETCH_MOVIE_SEARCH(this.formData)
+         this.$emit('onSearchSend', this.formData);
       }
    }
 }

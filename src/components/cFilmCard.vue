@@ -1,10 +1,11 @@
 <template>
-	<div class="card" v-if="filmInfo">
-		<img src="" class="card-img-top" :alt="filmInfo.name">
+	<div class="card card--modify" v-if="filmInfo">
+      <div class="card-img-wrapper">
+		   <img :src="filmInfo.image" class="card-img-top" :alt="filmInfo.name">
+      </div>
 		<div class="card-body">
 			<h5 class="card-title">{{ filmInfo.name }}</h5>
 			<p class="card-text">{{ filmInfo.descr }}</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
 		</div>
 	</div>
 </template>

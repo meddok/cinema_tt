@@ -1,0 +1,23 @@
+.card {
+   &--modify {
+      display: flex;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      &:hover {
+         transform: translate(0, -10px);
+      }
+   }
+}
+
+.card-img-wrapper {
+   height: 400px;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: lightgray;
+
+   .card-img-top {
+      display: block;
+   }
+}
