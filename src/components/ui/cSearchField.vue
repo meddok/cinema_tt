@@ -19,7 +19,7 @@ export default {
 	},
 	methods: {
 		onFieldBlur(e) {
-			console.log(e.target.value)
+		   this.$emit('onCatchValue', this.fieldValue);
 		},
 
 		onKeyUp(e) {

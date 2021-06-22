@@ -3,6 +3,7 @@ import axios from '../axios.js';
 const state = {
 	movies: null,
 	movieSingle: null,
+	movieSearch: null,
 };
 
 const actions = {
@@ -21,12 +22,24 @@ const actions = {
 		});
 	},
 
+	FETCH_MOVIE_SEARCH({commit, getters}, {name, genres}) {
+		const paramsObj = {};
+		if ( name?.length ) paramsObj['name'] = name;
+		paramsObj['genres'] = genres;
+
+		return axios.get( `movies/find`, {
+			params: paramsObj
+		}).then((res) => {
+			commit('SET_MOVIE_SEARCH', res.data);
+		});
+	},
+
 };
 
 const getters = {
 	GET_MOVIES: (state) => state.movies,
-
 	GET_MOVIE_SINGLE: (state) => state.movieSingle,
+	GET_MOVIE_SEARCH: (state) => state.movieSearch,
 };
 
 const mutations = {
@@ -36,6 +49,10 @@ const mutations = {
 
 	SET_MOVIE_SINGLE: (State, data) => {
 		State.movieSingle = data;
+	},
+
+	SET_MOVIE_SEARCH: (State, data) => {
+		State.movieSearch = data;
 	},
 };
 

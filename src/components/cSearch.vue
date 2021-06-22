@@ -1,18 +1,31 @@
 <template>
    <div>
-      <search-field />
+      <search-field @onCatchValue="(e) => { formData.name = e }" />
       <br>
-      <check-box
-          v-for="item in movieGenres"
-          :key="item.genreId"
-          :check-group="`flexCheckDefault-${item.genreId}`"
-          @onCheckChange="onCheckChange(item)"
-      >{{ item.genreName }}</check-box>
-      {{selectedGenres}}
+      <div class="container">
+         <div class="row">
+            <check-box
+                class="col"
+                v-for="item in movieGenres"
+                :key="item.genreId"
+                :check-group="`flexCheckDefault-${item.genreId}`"
+                @onCheckChange="onCheckChange(item)"
+            >{{ item.genreName }}</check-box>
+         </div>
+      </div>
+
+      <div class="text-end mt-3">
+         <button type="button"
+                 class="btn btn-primary"
+                 @click="onSearchClick"
+         >Поиск</button>
+      </div>
    </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import searchField from "@/components/ui/cSearchField";
 import checkBox from "@/components/ui/cCheckBox";
 import DATA from "@/data/movieGenres";
@@ -23,6 +36,10 @@ export default {
       return {
          movieGenres: DATA,
          selectedGenres: [],
+         formData: {
+            name: null,
+            genres: []
+         }
       }
    },
    components: {
@@ -30,6 +47,10 @@ export default {
       checkBox
    },
    methods: {
+      ...mapActions([
+          'FETCH_MOVIE_SEARCH',
+      ]),
+
       onCheckChange(genre) {
          const idGenre = this.selectedGenres.indexOf(genre)
 
@@ -38,6 +59,16 @@ export default {
          } else {
             this.selectedGenres.push(genre)
          }
+      },
+
+      onSearchClick() {
+         if (!this.formData.name && !this.selectedGenres.length) {
+            alert('Заполните хоть что-то!')
+            return false;
+         }
+
+         this.formData.genres = [...this.selectedGenres.map(el => el.genreId)]
+         this.FETCH_MOVIE_SEARCH(this.formData)
       }
    }
 }

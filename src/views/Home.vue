@@ -1,6 +1,8 @@
 <template>
 	<div class="home container">
-		<img alt="Vue logo" src="../assets/logo.png">
+      <div class="text-center mb-5">
+         <img alt="Vue logo" src="../assets/logo.png">
+      </div>
       <cSearch />
 		<!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 	</div>
