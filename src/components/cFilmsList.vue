@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import FilmCard from "@/components/filmCard";
+import FilmCard from "@/components/cFilmCard";
 
 export default {
-	name: 'filmsList',
+	name: 'cFilmsList',
 	data() {
 		return {
 			filmInfo: {

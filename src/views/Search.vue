@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import FilmsList from "@/components/filmsList";
-import searchField from "@/components/ui/searchField";
+import FilmsList from "@/components/cFilmsList";
+import searchField from "@/components/ui/cSearchField";
 
 export default {
 	name: "Search",

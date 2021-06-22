@@ -11,7 +11,7 @@
 
 <script>
 export default {
-	name: 'filmItem',
+	name: 'cFilmItem',
 	props: {
 		filmInfo: {
 			type: Object,

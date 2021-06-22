@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FilmsList from "@/components/filmsList";
+import FilmsList from "@/components/cFilmsList";
 
 export default {
 	name: 'filmsPage',

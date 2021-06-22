@@ -11,7 +11,7 @@
 
 <script>
 export default {
-	name: 'search',
+	name: 'cSearchField',
 	data() {
 		return {
 			fieldValue: ''
