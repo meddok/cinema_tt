@@ -15,10 +15,10 @@ const routes = [
     name: 'Films',
     component: () => import('../views/films/index.vue'),
     children: [
-      { 
-        path: ':id', 
+      {
+        path: ':id',
         name: 'FilmInfo',
-        component: () => import('../views/films/_id.vue') 
+        component: () => import('../views/films/_id.vue')
       }
     ]
   },
