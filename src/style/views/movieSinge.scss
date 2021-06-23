@@ -1,0 +1,8 @@
+.movie-item {
+   &__poster {
+      img {
+         max-width: 100%;
+         display: block;
+      }
+   }
+}

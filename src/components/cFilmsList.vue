@@ -25,7 +25,7 @@ export default {
       return {
          filmInfo: [
             {
-               image: 'https://lwlies.com/wp-content/uploads/2017/11/John-Wick-2-900x0-c-default2.jpg',
+               image: 'https://lwlies.com/wp-content/uploads/2017/11/John-Wick-2-900x0-c-default.jpg',
                name: 'Card title',
                descr: "Some quick example text to build on the card title and make up the bulk of the card's content."
             },
